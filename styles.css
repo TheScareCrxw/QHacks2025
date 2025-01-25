@@ -1,0 +1,83 @@
+#side-nav-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh; /* Changed to viewport height */
+    width: 60px; /* Width when collapsed */
+    background-color: #f4f4f4;
+    overflow-x: hidden;
+    padding-top: 20px;
+    transition: 0.5s; /* Smooth transition effect */
+    z-index: 1; /* Ensure it's on top of other content */
+}
+
+#side-nav-bar.expanded {
+    width: 200px; /* Width when expanded */
+}
+
+#nav-button {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.nav-icon {
+    font-size: 24px;
+}
+
+#nav-links {
+    display: none; /* Hidden when collapsed */
+    flex-direction: column;
+    width: 100%;
+    padding-top: 60px; /* Space for the nav button */
+}
+
+#side-nav-bar.expanded #nav-links {
+    display: flex; /* Visible when expanded */
+}
+
+
+#nav-links a {
+    padding: 15px 20px;
+    text-decoration: none;
+    font-size: 18px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+}
+
+#nav-links a:hover {
+    color: #f1f1f1;
+}
+
+/* Style for page content to avoid overlap */
+#page-content {
+    margin-left: 60px; /* Initial margin to account for collapsed navbar */
+    padding: 20px;
+    transition: margin-left 0.5s;
+    display: flex; /* Make page content a flex container */
+    flex-direction: column; /* Stack content vertically */
+    min-height: 100vh; /* Ensure full viewport height */
+    justify-content: center; /* Center content vertically */
+    align-items: center; /* Center content horizontally */
+}
+
+#page-content.expanded {
+    margin-left: 200px; /* Adjusted margin when navbar is expanded */
+}
+
+#item-input {
+    width: 150px;
+    
+    border: 2px solid black;
+    border-radius: 5px; /* Rounded edges */
+    padding: 5px; /* Add some padding for better look */
+}
