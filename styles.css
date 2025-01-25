@@ -76,8 +76,24 @@
 
 #item-input {
     width: 150px;
-    
+
     border: 2px solid black;
     border-radius: 5px; /* Rounded edges */
     padding: 5px; /* Add some padding for better look */
+}
+
+.home-messages {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.welcome-message {
+    font-size: 1.8em;
+    color: #2c3e50;
+    margin-bottom: 10px;
+}
+
+.ask-ai-message {
+    font-size: 1.1em;
+    color: #777;
 }
