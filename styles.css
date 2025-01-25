@@ -1,173 +1,83 @@
-body {
-    font-family: 'Roboto', sans-serif;
-    margin: 0;
-    color: #333;
-    background-color: #f8f8f8;
-    line-height: 1.6;
-}
-
-.landing-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
-}
-
-header {
-    text-align: center;
-    padding: 50px 0;
-}
-
-header h1 {
-    font-size: 2.8em;
-    color: #2c3e50;
-    margin-bottom: 10px;
-}
-
-.tagline {
-    font-size: 1.2em;
-    color: #777;
-}
-
-.hero {
-    background-color: #fff;
-    padding: 60px 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
-    text-align: center;
-    margin-bottom: 30px;
-}
-
-.hero h2 {
-    font-size: 2.2em;
-    color: #3498db;
-    margin-bottom: 20px;
-}
-
-.hero p {
-    font-size: 1.1em;
-    color: #555;
-    margin-bottom: 30px;
-}
-
-.features {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    padding: 20px 0;
-}
-
-.feature {
-    flex: 1;
-    padding: 20px;
-    margin: 10px;
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-    text-align: center;
-    min-width: 200px;
-}
-
-.feature h3 {
-    color: #2c3e50;
-    margin-bottom: 15px;
-}
-
-.feature p {
-    color: #666;
-}
-
-footer {
-    text-align: center;
-    padding: 30px 0;
-    color: #777;
-    border-top: 1px solid #eee;
-}
-
-.find-recipes-button {
-    padding: 15px 30px;
-    font-size: 1.2em;
-    background-color: #3498db;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.find-recipes-button:hover {
-    background-color: #fff9f2;
-}
-
-/* Sticky Navigation Bar */
-.sticky-nav {
+#side-nav-bar {
     position: fixed;
     top: 0;
-    width: 100%;
-    background-color: #333;
-    z-index: 1000;
+    left: 0;
+    height: 100vh; /* Changed to viewport height */
+    width: 60px; /* Width when collapsed */
+    background-color: #f4f4f4;
+    overflow-x: hidden;
+    padding-top: 20px;
+    transition: 0.5s; /* Smooth transition effect */
+    z-index: 1; /* Ensure it's on top of other content */
 }
 
-.sticky-nav .nav-container {
+#side-nav-bar.expanded {
+    width: 200px; /* Width when expanded */
+}
+
+#nav-button {
+    position: absolute;
+    top: 0;
+    left: 0;
     display: flex;
-    justify-content: space-between; /* Space out logo and links */
-    align-items: center; /* Vertically align items */
-    padding: 10px 20px;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    background: none;
+    border: none;
+    cursor: pointer;
 }
 
-.sticky-nav .nav-logo .logo-link {
-    font-size: 1.5em; /* Larger logo text */
-    color: white; /* Explicitly set to white */
+.nav-icon {
+    font-size: 24px;
 }
 
-.sticky-nav ul.nav-links {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    text-align: right; /* Align items to the right */
+#nav-links {
+    display: none; /* Hidden when collapsed */
+    flex-direction: column;
+    width: 100%;
+    padding-top: 60px; /* Space for the nav button */
 }
 
-.sticky-nav ul.nav-links li {
-    display: inline;
-    margin-left: 20px; /* Spacing between nav items */
+#side-nav-bar.expanded #nav-links {
+    display: flex; /* Visible when expanded */
 }
 
-.sticky-nav ul.nav-links li a {
-    color: white;
+
+#nav-links a {
+    padding: 15px 20px;
     text-decoration: none;
-    padding: 10px 15px;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
+    font-size: 18px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
 }
 
-.sticky-nav ul.nav-links li a:hover {
-    background-color: #555;
+#nav-links a:hover {
+    color: #f1f1f1;
 }
 
-/* Header adjustments to avoid overlap */
-header {
-    padding-top: 70px; /* Adjust padding to account for sticky nav height */
-    text-align: center;
-    padding-bottom: 50px;
+/* Style for page content to avoid overlap */
+#page-content {
+    margin-left: 60px; /* Initial margin to account for collapsed navbar */
+    padding: 20px;
+    transition: margin-left 0.5s;
+    display: flex; /* Make page content a flex container */
+    flex-direction: column; /* Stack content vertically */
+    min-height: 100vh; /* Ensure full viewport height */
+    justify-content: center; /* Center content vertically */
+    align-items: center; /* Center content horizontally */
 }
 
-.main-header {
-    font-size: 2.8em;
-    color: #2c3e50;
-    margin-bottom: 10px;
+#page-content.expanded {
+    margin-left: 200px; /* Adjusted margin when navbar is expanded */
 }
 
-/* Contact Section */
-.contact-section {
-    padding: 60px 20px;
-    text-align: center;
-    background-color: #f0f0f0;
-}
-
-.contact-section h2 {
-    color: #2c3e50;
-    margin-bottom: 20px;
-}
-
-.contact-section p {
-    color: #666;
+#item-input {
+    width: 150px;
+    
+    border: 2px solid black;
+    border-radius: 5px; /* Rounded edges */
+    padding: 5px; /* Add some padding for better look */
 }
