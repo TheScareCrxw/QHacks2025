@@ -27,6 +27,7 @@ export default class App {
 
   loadPages() {
     this.homePage.init();
+    this.recipeGeneratorPage.init(); // Initialize RecipeGeneratorPage
   }
 
   run() {

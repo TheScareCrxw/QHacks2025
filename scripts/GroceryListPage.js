@@ -32,7 +32,7 @@ export default class GroceryListPage extends Page {
 
     itemInput.addEventListener('keypress', (event) => {
       if (event.key === 'Enter') {
-        event.preventDefault(); // Prevent default form submission
+        event.preventDefault(); 
         this.addItem();
       }
     });
