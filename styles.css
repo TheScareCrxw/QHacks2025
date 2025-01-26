@@ -71,6 +71,8 @@
     align-items: center; /* Center content horizontally */
     position: relative; /* Ensure positioning for the overlay */
     color: black; /* Keep the text color unaffected */
+    margin-left: auto; /* Center the page content horizontally */
+    margin-right: auto; /* Center the page content horizontally */
 }
 
 #page-content::before {
@@ -155,29 +157,4 @@ body, * {
 
 .grocery-item > input[type="checkbox"] {
     margin-right: 10px; /* Space between checkbox and text */
-}
-
-
-
-/* Carousel Styles */
-.image-carousel {
-    display: flex;
-    width: 100%;
-    overflow-x: auto; /* Enable horizontal scrolling if needed */
-    scroll-snap-type: x mandatory; /* Enable snapping to slides */
-    -webkit-overflow-scrolling: touch; /* Enable smooth scrolling on iOS */
-}
-
-.carousel-slide {
-    flex: 0 0 100%; /* Prevent slides from shrinking, set base width to 100% */
-    width: 100%;
-    scroll-snap-align: start; /* Snap to the start of the slide */
-    display: flex;
-    justify-content: center; /* Center image horizontally */
-    align-items: center; /* Center image vertically */
-}
-
-.carousel-slide img {
-    max-width: 80%; /* Adjust as needed */
-    max-height: 80%; /* Adjust as needed */
 }
