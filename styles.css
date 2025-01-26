@@ -4,12 +4,12 @@
     left: 0;
     height: 100vh; /* Changed to viewport height */
     width: 60px; /* Width when collapsed */
-    background-color: #002452;
-    list-style: #cad2de;
+    background-color: #172b1a;
+    list-style: #ddeddf;
     overflow-x: hidden;
     padding-top: 20px;
     transition: 0.5s; /* Smooth transition effect */
-    z-index: 1; /* Ensure it's on top of other content */
+    z-index: 10; /* Ensure it's on top of other content */
 }
 
 #side-nav-bar.expanded {
@@ -25,7 +25,7 @@
     justify-content: center;
     width: 60px;
     height: 60px;
-    background-color: #002452;
+    background-color: #172b1a;
     border: none;
     cursor: pointer;
 }
@@ -50,7 +50,7 @@
     padding: 15px 20px;
     text-decoration: none;
     font-size: 18px;
-    color: #cad2de;
+    color: #ddeddf;
     display: block;
     transition: 0.3s;
 }
@@ -61,7 +61,7 @@
 
 /* Style for page content to avoid overlap */
 #page-content {
-    margin-left: 60px; /* Initial margin to account for collapsed navbar */
+    margin-left: 40px; /* Initial margin to account for collapsed navbar */
     padding: 20px;
     transition: margin-left 0.5s;
     display: flex; /* Make page content a flex container */
@@ -69,28 +69,52 @@
     min-height: 100vh; /* Ensure full viewport height */
     justify-content: center; /* Center content vertically */
     align-items: center; /* Center content horizontally */
+    position: relative; /* Ensure positioning for the overlay */
+    color: black; /* Keep the text color unaffected */
 }
+
+#page-content::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('https://static.vecteezy.com/system/resources/previews/017/476/220/non_2x/grocery-store-flat-color-illustration-supermarket-sections-retail-business-fully-editable-2d-simple-cartoon-interior-with-wooden-shelves-with-vegetables-and-bread-on-background-vector.jpg');
+    background-size: cover; /* Cover the entire page */
+    background-repeat: no-repeat; /* Prevent image from repeating */
+    background-position: center; /* Center the image */
+    background-color: rgba(255, 255, 255, 0.7); /* Add a semi-transparent white overlay */
+    filter: opacity(50%); /* Blend with the image */
+    z-index: 1; /* Ensure overlay is behind the content */
+}
+
+#page-content > * {
+    position: relative; /* Ensure text and other content are above the overlay */
+    z-index: 2;
+}
+
 
 #page-content.expanded {
     margin-left: 200px; /* Adjusted margin when navbar is expanded */
 }
 
 #item-input {
-    width: 600px;
-    height: 30px;
-
-    border: 1.5px solid #002452;
-    border-radius: 5px;
-    padding: 5px;
+    width: 800px;
+    height: 50px;
+    background-color: #e2e2e2;
+    border: 1.5px solid #172b1a;
+    border-radius: 40px; /* Increased for super rounded corners */
+    padding: 25px;
 }
 
 #home-page-textbox {
-    width: 600px;
-    height: 30px;
-
-    border: 1.5px solid #002452;
-    border-radius: 5px;
-    padding: 5px;
+    width: 800px;
+    height: 50px;
+    background-color: #e2e2e2;
+    border: 1.5px solid #172b1a;
+    border-radius: 40px; /* Increased for super rounded corners */
+    padding: 25px;
 }
 
 .home-messages {
@@ -100,7 +124,7 @@
 
 .welcome-message {
     font-size: 1.8em;
-    color: #002453;
+    color: #172b1a;
     margin-bottom: 10px;
 }
 
@@ -114,12 +138,13 @@ body, * {
 }
 
 #grocery-list-container h2 {
-    color: #002453;
+    color: #172b1a;
 }
 
 #grocery-item-list {
     list-style: none;
     padding-left: 0;
+    
 }
 
 .grocery-item {
@@ -130,4 +155,29 @@ body, * {
 
 .grocery-item > input[type="checkbox"] {
     margin-right: 10px; /* Space between checkbox and text */
+}
+
+
+
+/* Carousel Styles */
+.image-carousel {
+    display: flex;
+    width: 100%;
+    overflow-x: auto; /* Enable horizontal scrolling if needed */
+    scroll-snap-type: x mandatory; /* Enable snapping to slides */
+    -webkit-overflow-scrolling: touch; /* Enable smooth scrolling on iOS */
+}
+
+.carousel-slide {
+    flex: 0 0 100%; /* Prevent slides from shrinking, set base width to 100% */
+    width: 100%;
+    scroll-snap-align: start; /* Snap to the start of the slide */
+    display: flex;
+    justify-content: center; /* Center image horizontally */
+    align-items: center; /* Center image vertically */
+}
+
+.carousel-slide img {
+    max-width: 80%; /* Adjust as needed */
+    max-height: 80%; /* Adjust as needed */
 }
