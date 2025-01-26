@@ -19,24 +19,31 @@ export default class HomePage extends Page {
     const homePageDiv = document.createElement('div');
     homePageDiv.id = 'home-page';
 
-    //const openai = new OpenAI();
+    const messageContainer = document.createElement('div');
+    messageContainer.classList.add('home-messages');
 
-    
+    const welcomeMessage = document.createElement('p');
+    welcomeMessage.innerHTML = '<b>Welcome to NutriTrack!</b>';
+    welcomeMessage.classList.add('welcome-message');
+    messageContainer.appendChild(welcomeMessage);
+
+    const askAiMessage = document.createElement('p');
+    askAiMessage.textContent = 'Ask NutriAI anything about recipes or nutrition:';
+    askAiMessage.classList.add('ask-ai-message');
+    messageContainer.appendChild(askAiMessage);
+
+    homePageDiv.appendChild(messageContainer);
+
 
     const textBox = document.createElement('input');
     textBox.type = 'text';
-    textBox.placeholder = 'Enter text here';
+    textBox.id = 'home-page-textbox';
+    textBox.placeholder = 'Ask NutriAI here';
     textBox.classList.add('home-page-textbox');
-    
-    textBox.addEventListener('keypress', (event) => {
-      if (event.key === 'Enter') {
-        event.preventDefault(); 
-        // this.getChatResponse(this.getText())
-        // console.log(this.getChatResponse(this.getText()))
-      }
-    });
+
 
     homePageDiv.appendChild(textBox);
+
     return homePageDiv;
   }
 

@@ -143,7 +143,7 @@ export default class RecipeGeneratorPage extends Page {
                 recipeCard.classList.add("recipe-card", "bg-gray-800", "rounded", "shadow", "p-4", "cursor-pointer");
                 recipeCard.dataset.recipeId = recipe.id;
                 recipeCard.innerHTML = `
-                    <img src="${recipe.image}" alt="${recipe.title}" class="w-full h-48 object-cover mb-4 rounded">
+                    <img src="${recipe.image}" alt="${recipe.title}" class="w-full h-16 object-cover mb-4 rounded">
                     <h2 class="text-lg font-semibold">${recipe.title}</h2>
                 `;
                 recipeCard.addEventListener("click", () => onClick(recipe));

@@ -18,8 +18,9 @@ export default class GroceryListPage extends Page {
     groceryListContainer.id = 'grocery-list-container';
 
     const title = document.createElement('h2');
-    title.textContent = 'Grocery List';
+    title.innerHTML = "<b>Grocery List</b>";
     groceryListContainer.appendChild(title);
+
 
     const addItemContainer = document.createElement('div');
     addItemContainer.id = 'add-item-container';

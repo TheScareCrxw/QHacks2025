@@ -4,11 +4,12 @@
     left: 0;
     height: 100vh; /* Changed to viewport height */
     width: 60px; /* Width when collapsed */
-    background-color: #f4f4f4;
+    background-color: #172b1a;
+    list-style: #ddeddf;
     overflow-x: hidden;
     padding-top: 20px;
     transition: 0.5s; /* Smooth transition effect */
-    z-index: 1; /* Ensure it's on top of other content */
+    z-index: 10; /* Ensure it's on top of other content */
 }
 
 #side-nav-bar.expanded {
@@ -24,7 +25,7 @@
     justify-content: center;
     width: 60px;
     height: 60px;
-    background: none;
+    background-color: #172b1a;
     border: none;
     cursor: pointer;
 }
@@ -49,18 +50,18 @@
     padding: 15px 20px;
     text-decoration: none;
     font-size: 18px;
-    color: #818181;
+    color: #ddeddf;
     display: block;
     transition: 0.3s;
 }
 
 #nav-links a:hover {
-    color: #f1f1f1;
+    color: #ffffff;
 }
 
 /* Style for page content to avoid overlap */
 #page-content {
-    margin-left: 60px; /* Initial margin to account for collapsed navbar */
+    margin-left: 40px; /* Initial margin to account for collapsed navbar */
     padding: 20px;
     transition: margin-left 0.5s;
     display: flex; /* Make page content a flex container */
@@ -68,39 +69,92 @@
     min-height: 100vh; /* Ensure full viewport height */
     justify-content: center; /* Center content vertically */
     align-items: center; /* Center content horizontally */
+    position: relative; /* Ensure positioning for the overlay */
+    color: black; /* Keep the text color unaffected */
+    margin-left: auto; /* Center the page content horizontally */
+    margin-right: auto; /* Center the page content horizontally */
 }
 
-.recipes-container {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 1rem;
-    margin-top: 2rem;
+#page-content::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('https://static.vecteezy.com/system/resources/previews/017/476/220/non_2x/grocery-store-flat-color-illustration-supermarket-sections-retail-business-fully-editable-2d-simple-cartoon-interior-with-wooden-shelves-with-vegetables-and-bread-on-background-vector.jpg');
+    background-size: cover; /* Cover the entire page */
+    background-repeat: no-repeat; /* Prevent image from repeating */
+    background-position: center; /* Center the image */
+    background-color: rgba(255, 255, 255, 0.7); /* Add a semi-transparent white overlay */
+    filter: opacity(50%); /* Blend with the image */
+    z-index: 1; /* Ensure overlay is behind the content */
 }
 
-.recipe-card img {
-    width: 100%; /* Make images take full width of their container */
-    height: auto; /* Maintain aspect ratio */
-    max-height: 150px; /* Limit image height */
-    object-fit: cover; /* Ensure images cover the area without distortion */
-    border-radius: 8px; /* Rounded corners for images */
+#page-content > * {
+    position: relative; /* Ensure text and other content are above the overlay */
+    z-index: 2;
 }
 
-.recipe-card {
-    transition: transform 0.3s ease; /* Add transition for smooth popup effect */
-}
-
-.recipe-card:hover {
-    transform: scale(1.05); /* সামান্য বড় হবে যখন হোভার করা হবে */
-}
 
 #page-content.expanded {
     margin-left: 200px; /* Adjusted margin when navbar is expanded */
 }
 
 #item-input {
-    width: 150px;
+    width: 800px;
+    height: 50px;
+    background-color: #e2e2e2;
+    border: 1.5px solid #172b1a;
+    border-radius: 40px; /* Increased for super rounded corners */
+    padding: 25px;
+}
+
+#home-page-textbox {
+    width: 800px;
+    height: 50px;
+    background-color: #e2e2e2;
+    border: 1.5px solid #172b1a;
+    border-radius: 40px; /* Increased for super rounded corners */
+    padding: 25px;
+}
+
+.home-messages {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.welcome-message {
+    font-size: 1.8em;
+    color: #172b1a;
+    margin-bottom: 10px;
+}
+
+.ask-ai-message {
+    font-size: 1.1em;
+    color: #5f6670;
+}
+
+body, * {
+    font-family: "Verdana", sans-serif;
+}
+
+#grocery-list-container h2 {
+    color: #172b1a;
+}
+
+#grocery-item-list {
+    list-style: none;
+    padding-left: 0;
     
-    border: 2px solid black;
-    border-radius: 5px; /* Rounded edges */
-    padding: 5px; /* Add some padding for better look */
+}
+
+.grocery-item {
+    display: flex; /* Use flexbox for alignment */
+    align-items: center; /* Vertically align checkbox and label */
+    margin-bottom: 5px; /* Space between items */
+}
+
+.grocery-item > input[type="checkbox"] {
+    margin-right: 10px; /* Space between checkbox and text */
 }
