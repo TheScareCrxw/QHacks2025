@@ -21,11 +21,13 @@ export default class SideNavBar {
     return navBar;
   }
 
+  
   createNavButton() {
     const navButton = document.createElement('button');
     navButton.id = 'nav-button';
     navButton.className = 'nav-icon';
     navButton.innerHTML = '&#9776;'; // Hamburger icon
+    navButton.style.color = '#cad2de';
     navButton.onclick = () => this.toggleCollapse();
     return navButton;
   }

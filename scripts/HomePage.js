@@ -22,7 +22,7 @@ export default class HomePage extends Page {
     messageContainer.classList.add('home-messages');
 
     const welcomeMessage = document.createElement('p');
-    welcomeMessage.textContent = 'Welcome to NutriTrack!';
+    welcomeMessage.innerHTML = '<b>Welcome to NutriTrack!</b>';
     welcomeMessage.classList.add('welcome-message');
     messageContainer.appendChild(welcomeMessage);
 
@@ -36,7 +36,8 @@ export default class HomePage extends Page {
 
     const textBox = document.createElement('input');
     textBox.type = 'text';
-    textBox.placeholder = 'Enter text here';
+    textBox.id = 'home-page-textbox';
+    textBox.placeholder = 'Ask NutriAI here';
     textBox.classList.add('home-page-textbox');
     homePageDiv.appendChild(textBox);
 

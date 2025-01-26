@@ -4,7 +4,8 @@
     left: 0;
     height: 100vh; /* Changed to viewport height */
     width: 60px; /* Width when collapsed */
-    background-color: #f4f4f4;
+    background-color: #002452;
+    list-style: #cad2de;
     overflow-x: hidden;
     padding-top: 20px;
     transition: 0.5s; /* Smooth transition effect */
@@ -24,7 +25,7 @@
     justify-content: center;
     width: 60px;
     height: 60px;
-    background: none;
+    background-color: #002452;
     border: none;
     cursor: pointer;
 }
@@ -49,13 +50,13 @@
     padding: 15px 20px;
     text-decoration: none;
     font-size: 18px;
-    color: #818181;
+    color: #cad2de;
     display: block;
     transition: 0.3s;
 }
 
 #nav-links a:hover {
-    color: #f1f1f1;
+    color: #ffffff;
 }
 
 /* Style for page content to avoid overlap */
@@ -75,11 +76,21 @@
 }
 
 #item-input {
-    width: 150px;
+    width: 600px;
+    height: 30px;
 
-    border: 2px solid black;
-    border-radius: 5px; /* Rounded edges */
-    padding: 5px; /* Add some padding for better look */
+    border: 1.5px solid #002452;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+#home-page-textbox {
+    width: 600px;
+    height: 30px;
+
+    border: 1.5px solid #002452;
+    border-radius: 5px;
+    padding: 5px;
 }
 
 .home-messages {
@@ -89,11 +100,34 @@
 
 .welcome-message {
     font-size: 1.8em;
-    color: #2c3e50;
+    color: #002453;
     margin-bottom: 10px;
 }
 
 .ask-ai-message {
     font-size: 1.1em;
-    color: #777;
+    color: #5f6670;
+}
+
+body, * {
+    font-family: "Verdana", sans-serif;
+}
+
+#grocery-list-container h2 {
+    color: #002453;
+}
+
+#grocery-item-list {
+    list-style: none;
+    padding-left: 0;
+}
+
+.grocery-item {
+    display: flex; /* Use flexbox for alignment */
+    align-items: center; /* Vertically align checkbox and label */
+    margin-bottom: 5px; /* Space between items */
+}
+
+.grocery-item > input[type="checkbox"] {
+    margin-right: 10px; /* Space between checkbox and text */
 }
